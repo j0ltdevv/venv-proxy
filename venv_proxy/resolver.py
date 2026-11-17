@@ -3,9 +3,10 @@ Core venv resolution logic.
 Traverses the filesystem upward from CWD to find the nearest .venv.
 """
 from pathlib import Path
+from typing import Optional
 
 
-def resolve_venv(cwd: Path, binary: str = "python", max_depth: int = 10) -> Path | None:
+def resolve_venv(cwd: Path, binary: str = "python", max_depth: int = 10) -> Optional[Path]:
     """
     Walk up from `cwd` looking for a .venv/bin/<binary>.
     Returns the full path if found, None otherwise.
